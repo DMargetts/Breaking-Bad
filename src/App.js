@@ -4,6 +4,7 @@ import Searchbar from "./components/searchbar/searchbar";
 import CardArea from "./components/cardArea/cardArea";
 
 import appStyle from "./appStyle.module.scss";
+import "./style.css";
 
 const App = () => {
   const [data, setData] = useState([]);

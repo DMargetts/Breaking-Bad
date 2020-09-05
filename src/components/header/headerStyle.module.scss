@@ -1,4 +1,11 @@
 .header {
   display: flex;
   justify-content: center;
+  color: white;
+  margin: 10px;
+
+  img {
+    height: auto;
+    width: 200px;
+  }
 }

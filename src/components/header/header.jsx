@@ -1,10 +1,11 @@
 import React from "react";
 import headerStyle from "./headerStyle.module.scss";
+import headerImage from "../../img/logo.png";
 
 const header = () => {
   return (
     <div className={headerStyle.header}>
-      <h1>Breaking Bad</h1>
+      <img src={headerImage} />
     </div>
   );
 };
