@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Header from "./components/header/header";
+import Searchbar from "./components/searchbar/searchbar";
+import CardArea from "./components/cardArea/cardArea";
 
-function App() {
+import appStyle from "./appStyle.module.scss";
+
+const App = () => {
+  const [data, setData] = useState([]);
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    fetch("https://www.breakingbadapi.com/api/characters")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setData(data);
+        setImages(data);
+      });
+  }, []);
+
+  const searchCharacter = (e) => {
+    if (e !== undefined) {
+      const filter = data.filter((character) => {
+        return character.name.toLowerCase().includes(e.target.value);
+      });
+      setImages(filter);
+    } else {
+      setImages(data);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={appStyle.app}>
+      <Header />
+      <Searchbar search={searchCharacter} />
+      <CardArea data={images} />
     </div>
   );
-}
+};
 
 export default App;

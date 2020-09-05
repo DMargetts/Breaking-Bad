@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+body {
+  background: darkslategray;
+}
+.app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 85%;
+  margin: auto;
+}
