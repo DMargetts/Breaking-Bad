@@ -13,6 +13,8 @@ const App = () => {
     fetch("https://www.breakingbadapi.com/api/characters")
       .then((resp) => resp.json())
       .then((data) => {
+        data.splice(1, 1);
+        data.splice(3, 1);
         setData(data);
         setImages(data);
       });
